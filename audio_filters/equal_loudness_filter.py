@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from audio_filters.iir_filter import IIRFilter
 
-
 # Coefficients from the "Original ReplayGain specification" (Equal Loudness Filter)
 # - Yulewalk: 10th-order IIR
 # - Butterworth: 2nd-order high-pass at 150 Hz
@@ -128,9 +127,11 @@ class EqualLoudnessFilter:
     def __init__(self, samplerate: int = 44100) -> None:
         if samplerate not in _REPLAYGAIN_COEFFS:
             supported = ", ".join(str(sr) for sr in sorted(_REPLAYGAIN_COEFFS))
-            raise ValueError(
-                f"Unsupported samplerate {samplerate}. Supported samplerates: {supported}"
+            msg = (
+                f"Unsupported samplerate {samplerate}. "
+                f"Supported samplerates: {supported}"
             )
+            raise ValueError(msg)
 
         coeffs = _REPLAYGAIN_COEFFS[samplerate]
 
