@@ -19,8 +19,8 @@ class IIRFilter:
 
     we can rewrite this to
         .. math:: y[n]={\frac{1}{a_{0}}}
-                  \left(\left(b_{0}x[n]+b_{1}x[n-1]+b_{2}x[n-2]+...+b_{k}x[n-k]\right)-
-                  \left(a_{1}y[n-1]+a_{2}y[n-2]+...+a_{k}y[n-k]\right)\right)
+                  \left(\left(b_{0}x[n]+b_{1}x[n-1]+b_{2}x[n-2}+...+b_{k}x[n-k]\right)-
+                  \left(a_{1}y[n-1]+a_{2}y[n-2}+...+a_{k}y[n-k]\right)\right)
     """
 
     def __init__(self, order: int) -> None:
